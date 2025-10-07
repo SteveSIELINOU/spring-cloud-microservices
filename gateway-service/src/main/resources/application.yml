@@ -6,12 +6,17 @@ spring:
       fail-fast: false
   config:
     import: "configserver:http://localhost:8888/"
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8099/realms/travel
 
 management:
   endpoints:
     web:
       exposure:
-        include: health,info,prometheus,metrics,loggers,gateway
+        include: health,info,prometheus,metrics,loggers,gateway,env
     health:
       probes:
         enabled: true

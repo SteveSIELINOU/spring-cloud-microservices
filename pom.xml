@@ -40,7 +40,7 @@
         <module>config-service</module>
         <module>discovery-service</module>
         <module>flight-search-service</module>
-        <module>api-gateway</module>
+        <module>gateway-service</module>
         <module>pricing-service</module>
     </modules>
 

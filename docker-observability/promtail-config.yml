@@ -29,4 +29,4 @@ scrape_configs:
         labels:
           job: spring-microservices
           app: api-gateway
-          __path__: /var/log/services/api-gateway/logs/*.log
+          __path__: /var/log/services/gateway-service/logs/*.log
