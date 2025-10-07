@@ -1,0 +1,46 @@
+server:
+  port: 8080
+
+spring:
+  webflux:
+    base-path: /
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: flight-search-route
+              uri: lb://flight-search-service
+              predicates:
+                - Path=/api/flights/**
+            - id: pricing-route
+              uri: lb://pricing-service
+              predicates:
+                - Path=/api/pricing/**
+            - id: booking-route
+              uri: lb://booking-service
+              predicates:
+                - Path=/api/bookings/**
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
+          httpclient:
+            connect-timeout: 5000
+            response-timeout: 10s
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}:${server.port}
+    nonSecurePort: ${server.port}
+
+logging:
+  level:
+    org.springframework: info
+    org.hibernate.SQL: warn
+    org.hibernate.orm.jdbc.bind: warn

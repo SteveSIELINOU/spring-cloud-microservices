@@ -1,0 +1,25 @@
+server:
+  port: 8083
+
+app:
+  pricing:
+    tax-rate: 0.21
+    bag-fee-unit: 30.00
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}:${server.port}
+    nonSecurePort: ${server.port}
+
+
+logging:
+  level:
+    org.springframework: info
+    org.hibernate.SQL: warn
+    org.hibernate.orm.jdbc.bind: warn
+

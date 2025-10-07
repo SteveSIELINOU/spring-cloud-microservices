@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    config:
+      fail-fast: false
+  config:
+    import: "configserver:http://localhost:8888/"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics,loggers,gateway
+    health:
+      probes:
+        enabled: true
+    tracing:
+      sampling:
+        probability: 1.0
+  otlp:
+    tracing:
+      export:
+        enabled: false
+
+otel:
+  exporter:
+    otlp:
+      endpoint: http://localhost:4317
+

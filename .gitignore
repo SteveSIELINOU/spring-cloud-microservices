@@ -1,0 +1,51 @@
+### Maven ###
+target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+**/logs/
+**/*.log
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
+out/
+
+### VSCode ###
+.vscode/
+
+### System ###
+.DS_Store
+Thumbs.db
+
+### Java ###
+*.class
+*.jar
+*.war
+*.ear
+
+### Docker ###
+*.pid
+*.env
+.env.local
+.envrc
+docker-compose.override.yml
+
+### Spring ###
+**/application-*.yml
+**/application-*.properties
+**/bootstrap-*.yml
+**/bootstrap-*.properties
+
+### Tests ###
+surefire-reports/
+jacoco.exec
+test-output/
+
+### OS ###
+*.swp
+*.tmp
+*.bak
+
+### Logs ###
+*.log
+logs/
